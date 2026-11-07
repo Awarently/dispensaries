@@ -1,0 +1,4 @@
+out/
+__pycache__/
+terpenes.csv
+terpenes.xlsx
