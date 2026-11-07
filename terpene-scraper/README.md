@@ -17,7 +17,8 @@ No login, no cart/checkout/account URLs, no access-control bypass. Requests are 
 ## Setup (Windows)
 
 ```bat
-cd C:\dev\terpene-scraper
+git clone https://github.com/awarently/dispensaries C:\dev\dispensaries
+cd C:\dev\dispensaries\terpene-scraper
 py -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
@@ -39,14 +40,14 @@ Notes on the data:
 2. Open **Task Scheduler** > **Create Task...** (not "Basic Task").
 3. **General**: name `Terpene scraper`; choose "Run only when user is logged on" (simplest).
 4. **Triggers** > New: Daily, pick a time (e.g. 7:30 AM). Menus change during the day, so once daily is plenty.
-5. **Actions** > New: Start a program. Program: `C:\dev\terpene-scraper\run_daily.bat`. Start in: `C:\dev\terpene-scraper`.
+5. **Actions** > New: Start a program. Program: `C:\dev\dispensaries\terpene-scraper\run_daily.bat`. Start in: `C:\dev\dispensaries\terpene-scraper`.
 6. **Settings**: tick "Run task as soon as possible after a scheduled start is missed".
 7. Test: right-click the task > Run, then check `run.log` and the updated `terpenes.xlsx`. Close the xlsx in Excel before a run, or the write will fail.
 
 Command-line equivalent:
 
 ```bat
-schtasks /Create /SC DAILY /ST 07:30 /TN "Terpene scraper" /TR "C:\dev\terpene-scraper\run_daily.bat"
+schtasks /Create /SC DAILY /ST 07:30 /TN "Terpene scraper" /TR "C:\dev\dispensaries\terpene-scraper\run_daily.bat"
 ```
 
 ## Maintenance
